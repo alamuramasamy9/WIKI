@@ -1,16 +1,14 @@
-<h1>WIKIPEDIA - Making knowledge fun!</h1>
+<center><h2 style="color:rgb(168, 18, 13)">WIKIMEDIA - Making knowledge fun!</h2></center>
 <% @articles.each do |article| %>
-  <h2>
+  <h3>
     <%= link_to article.title, article %>  
-  </h2>
+  </h3>
   <p>
     Published at
     <%= article.created_at.strftime('%d %b, %Y') %>
   </p>
   <p>
-    <%= truncate(article.content, length: 150) %>
+    <%= truncate(article.content, length: 350) %>
   </p>
 <% end %>
-<% if user_signed_in? %>
-  <%= link_to "New Article", new_article_path %>
-<% end %>
+

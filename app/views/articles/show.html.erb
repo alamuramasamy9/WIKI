@@ -1,11 +1,16 @@
-<div class="panel panel-default">
-	<h1>
- 		<%= @article.title %>
-	</h1>
-	<p>
- 		<%= @article.content %>
-	</p>
-	<%= link_to "Back", root_path %>
-	<%= link_to "Edit", edit_article_path(@article) %>
-	<%= link_to "Delete", article_path(@article), method: :delete, data: {confirm: "Are you sure?"} %>
+
+<h1>
+	<%= @article.title %>
+</h1>
+<p>
+	<%= @article.content %>
+</p>
+<div class="btn-group"><tab/>
+	<%= link_to "Back", root_path,class: "btn btn-default" %> <tab/>
+	<% if user_signed_in? %>
+		<%= link_to "Edit", edit_article_path(@article), class: "btn btn-default" %>
+		<%= link_to "Delete", article_path(@article), method: :delete, data: {confirm: "Are you sure?"},class: "btn btn-default" %>
+	<% end %>
 </div>
+
+ 
